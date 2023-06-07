@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    background-color: var(--dark-blue);
+    color: var(--text-color);
+  }
+
+  html.light-theme {
+    background-color: var(--beige);
+    --text-color: var(--black);
+    --gray-light: var(--gray-dark);
+    --light-icon: var(--black);
+    --dark-icon: white;
+    --anchor-color: var(--black);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    margin: 0;
+  }
+
+  input,
+  textarea,
+  button,
+  select {
+    font: inherit;
+  }
+
+  ::-moz-selection {
+    background-color: var(--primary);
+    color: var(--black);
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: var(--black);
+  }
+
+  #toggle-theme {
+    all: inherit;
+    outline: revert;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    padding: 5px;
+    transition: translate 180ms;
+  }
+
+  #toggle-theme:active {
+    translate: 1px, 1px;
+  }
+}
