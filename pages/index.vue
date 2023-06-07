@@ -466,6 +466,12 @@ p {
   }
 }
 
+.portfolio-screenshot {
+  border-radius: 50%;
+  width: clamp(175px, 20vw, 300px);
+  height: clamp(175px, 20vw, 300px);
+}
+
 .tag {
   --tag-color: var(--gray);
   font-size: 1rem;
