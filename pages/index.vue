@@ -9,9 +9,12 @@ function toggleTheme() {
 }
 
 function scrollToAboutMe() {
+  const scrollOffset = aboutMeElement.offsetTop - 20;
   window.scrollTo({
-    top: aboutMeElement.offsetTop - 20,
+    top: scrollOffset,
+    behavior: 'smooth',
   });
+  hasScrolledToAboutMe.value = true;
 }
 
 onMounted(() => {
@@ -25,10 +28,7 @@ onMounted(() => {
 
   if (scrollDownButton !== null) {
     scrollDownButton.addEventListener('click', () => {
-      if (!hasScrolledToAboutMe.value) {
-        scrollToAboutMe();
-        hasScrolledToAboutMe.value = true;
-      }
+      scrollToAboutMe();
     });
   }
 
@@ -48,10 +48,8 @@ onUnmounted(() => {
 
   if (scrollDownButton !== null) {
     scrollDownButton.removeEventListener('click', () => {
-      if (!hasScrolledToAboutMe.value) {
-        scrollToAboutMe();
-        hasScrolledToAboutMe.value = true;
-      }
+      scrollToAboutMe();
+      hasScrolledToAboutMe.value = true;
     });
   }
 });
@@ -68,11 +66,11 @@ onUnmounted(() => {
         <h1 class="title--lg mb-0">Jordan B Mowry</h1>
         <h2 class="title--lg mt-0 mb-10 break-words">Web Developer</h2>
         <img
-          src="~/assets/images/profile-img.jpg"
+          src="~/assets/images/profile-img.png"
           width="300"
           height="300"
           alt="Jordan Mowry profile photo"
-          class="rounded-full mx-auto mb-6"
+          class="rounded-full mx-auto"
         />
         <p class="text--xl">
           Jordan is a web developer based in Bloomington, Indiana.
@@ -390,8 +388,8 @@ onUnmounted(() => {
   all: unset;
   outline: revert;
   box-sizing: border-box;
-  position: absolute;
-  bottom: 25px;
+  position: relative;
+  top: 8rem;
   left: calc(50vw - 48px / 2);
   cursor: pointer;
 }
