@@ -460,6 +460,12 @@ p {
   order: 1;
 }
 
+@media (max-width: 37.5rem) {
+  .portfolio {
+    display: block;
+  }
+}
+
 .tag {
   --tag-color: var(--gray);
   font-size: 1rem;
