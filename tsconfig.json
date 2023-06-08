@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "typeRoots": ["./types", "./node_modules/@types"]
+    // other compiler options...
+  },
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json"
 }

@@ -1,12 +1,29 @@
 <script lang="ts" setup>
+import nuxtStorage from 'nuxt-storage';
+
 const currentYear = computed(() => new Date().getFullYear());
 const lightMode = ref(true);
 
 onMounted(() => {
-  lightMode.value = document.documentElement.classList.contains('light-theme');
+  const lightModeLocal = nuxtStorage.localStorage.getData('lightMode');
+
+  if (lightModeLocal === 'true') {
+    lightMode.value = true;
+  } else if (lightModeLocal === 'false') {
+    lightMode.value = false;
+  } else {
+    const val = document.documentElement.classList.contains('light-theme');
+    nuxtStorage.localStorage.setData('lightMode', `${val}`);
+    lightMode.value = val;
+  }
 });
 
 watch(lightMode, async (newMode) => {
+  if (newMode) {
+    nuxtStorage.localStorage.setData('lightMode', 'true');
+  } else {
+    nuxtStorage.localStorage.setData('lightMode', 'false');
+  }
   return document.documentElement.classList.toggle('light-theme');
 });
 </script>
