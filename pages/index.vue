@@ -1,11 +1,15 @@
 <script setup lang="ts">
-let toggleThemeButton: HTMLElement;
+let toggleLightThemeButton: HTMLElement;
+let toggleDarkThemeButton: HTMLElement;
 let scrollDownButton: HTMLElement;
 let aboutMeElement: HTMLElement;
 let hasScrolledToAboutMe = ref<boolean>(false);
 
-function toggleTheme() {
-  document.documentElement.classList.toggle('light-theme');
+function toggleLightTheme() {
+  document.documentElement.classList.add('light-theme');
+}
+function toggleDarkTheme() {
+  document.documentElement.classList.remove('light-theme');
 }
 
 function scrollToAboutMe() {
@@ -18,12 +22,21 @@ function scrollToAboutMe() {
 }
 
 onMounted(() => {
-  toggleThemeButton = document.getElementById('toggle-theme')! as HTMLElement;
+  toggleLightThemeButton = document.getElementById(
+    'light-icon'
+  )! as HTMLElement;
+
+  toggleDarkThemeButton = document.getElementById('dark-icon')! as HTMLElement;
+
   scrollDownButton = document.getElementById('scroll-down')! as HTMLElement;
   aboutMeElement = document.getElementById('about-me')! as HTMLElement;
 
-  if (toggleThemeButton !== null) {
-    toggleThemeButton.addEventListener('click', toggleTheme);
+  if (toggleLightThemeButton !== null) {
+    toggleLightThemeButton.addEventListener('click', toggleLightTheme);
+  }
+
+  if (toggleDarkThemeButton !== null) {
+    toggleLightThemeButton.addEventListener('click', toggleDarkTheme);
   }
 
   if (scrollDownButton !== null) {
@@ -42,8 +55,12 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  if (toggleThemeButton !== null) {
-    toggleThemeButton.removeEventListener('click', toggleTheme);
+  if (toggleLightThemeButton !== null) {
+    toggleLightThemeButton.removeEventListener('click', toggleLightTheme);
+  }
+
+  if (toggleDarkThemeButton !== null) {
+    toggleDarkThemeButton.removeEventListener('click', toggleDarkTheme);
   }
 
   if (scrollDownButton !== null) {

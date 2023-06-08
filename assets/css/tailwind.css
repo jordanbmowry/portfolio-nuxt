@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    background-color: var(--dark-blue);
+    background-color: var(--dark);
     color: var(--text-color);
   }
 
@@ -44,7 +44,7 @@
     color: var(--black);
   }
 
-  #toggle-theme {
+  .toggle-theme {
     all: inherit;
     outline: revert;
     box-sizing: border-box;
@@ -57,7 +57,7 @@
     transition: translate 180ms;
   }
 
-  #toggle-theme:active {
+  .toggle-theme:active {
     translate: 1px, 1px;
   }
 }
