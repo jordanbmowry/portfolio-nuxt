@@ -201,10 +201,10 @@ onUnmounted(() => {
           <div>
             <h3 class="title">Restaurant reservations app</h3>
             <p class="text">
-              Fullstack application to schedule restaurant reservations and seat
-              customers for to help the buisness stay organized. Technologies
-              used are React, JavaScript, HTML, CSS, Bootstrap, SQL, Express,
-              and Node.js.
+              A fullstack application to schedule restaurant reservations and
+              seat customers for to help the buisness stay organized.
+              Technologies used are React, JavaScript, HTML, CSS, Bootstrap,
+              SQL, Express, and Node.js.
             </p>
             <a
               href="https://github.com/jordanbmowry/restaurant-reservation"
@@ -247,7 +247,7 @@ onUnmounted(() => {
           <div>
             <h3 class="title">Decoder Ring</h3>
             <p class="text">
-              Frontend Application that decodes text in three different ways
+              A frontend application that decodes text in three different ways
               used throughout history. Caesar Shift, Polybuis Square, and
               Substitution Cipher.
             </p>
@@ -271,8 +271,7 @@ onUnmounted(() => {
             <h3 class="title">Flashcard App</h3>
             <p class="text">
               A frontend application that is used to store flashcards and help
-              with studying. Technologies used with React, JavaScript, HTML,
-              CSS, and Bootstrap.
+              with studying.
             </p>
             <a
               href="https://github.com/jordanbmowry/Flashcard-o-matic"
