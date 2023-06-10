@@ -98,7 +98,7 @@ const onSubmit = handleSubmit(async (formData) => {
     await useCustomFetch(FORMSPARK_ACTION_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     hasFormSubmitted.value = true;
   } catch (error) {
