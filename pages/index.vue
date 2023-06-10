@@ -479,11 +479,10 @@ const onSubmit = handleSubmit(async () => {
           </div>
           <form
             v-if="!hasFormSubmitted"
+            action="https://submit-form.com/NXAd7ScE"
             @submit.prevent="onSubmit"
             ref="formRef"
             name="contact"
-            method="POST"
-            data-netlify="true"
           >
             <label for="hire-name" class="sr-only">Your name</label>
             <div>
