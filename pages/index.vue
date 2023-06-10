@@ -8,6 +8,7 @@ let scrollDownButton: HTMLElement;
 let aboutMeElement: HTMLElement;
 let hasScrolledToAboutMe = ref<boolean>(false);
 const formRef = ref<null | HTMLFormElement>(null);
+const hasFormSubmitted = ref(false);
 
 function toggleLightTheme() {
   document.documentElement.classList.add('light-theme');
@@ -90,21 +91,24 @@ const { value: name, errorMessage: nameError } = useField('name');
 const { value: message, errorMessage: messageError } = useField('message');
 
 const onSubmit = handleSubmit(async () => {
-  const formData = new FormData(formRef.value as HTMLFormElement);
+  try {
+    const formData = new FormData(formRef.value as HTMLFormElement);
 
-  const body = new URLSearchParams();
+    const body = new URLSearchParams();
 
-  for (let [key, value] of formData.entries()) {
-    body.append(key, value as string);
+    for (let [key, value] of formData.entries()) {
+      body.append(key, value as string);
+    }
+
+    await useCustomFetch(`/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString(),
+    });
+    hasFormSubmitted.value = true;
+  } catch (error) {
+    console.error(error);
   }
-
-  console.log(body.toString());
-
-  await useCustomFetch(`/`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString(),
-  });
 });
 </script>
 
@@ -472,6 +476,7 @@ const onSubmit = handleSubmit(async () => {
             </address>
           </div>
           <form
+            v-if="!hasFormSubmitted"
             @submit.prevent="onSubmit"
             ref="formRef"
             name="contact"
@@ -519,6 +524,17 @@ const onSubmit = handleSubmit(async () => {
               <button type="submit" class="btn btn--raised">Send</button>
             </div>
           </form>
+          <div v-else>
+            <h3 class="title">
+              Form submission successful.
+              <img
+                class="ml-4 inline-block"
+                src="~/assets/images/send.png"
+                alt="paper plane"
+              />
+            </h3>
+            <p class="font-bold"></p>
+          </div>
         </div>
       </div>
     </section>
