@@ -2,14 +2,15 @@
 import { useField, useForm } from 'vee-validate';
 import * as yup from 'yup';
 
+const FORMSPARK_ACTION_URL = 'https://submit-form.com/NXAd7ScE';
 let toggleLightThemeButton: HTMLElement;
 let toggleDarkThemeButton: HTMLElement;
 let scrollDownButton: HTMLElement;
 let aboutMeElement: HTMLElement;
-let hasScrolledToAboutMe = ref<boolean>(false);
 
+const hasScrolledToAboutMe = ref(false);
+const formSubmittingInProcess = ref(false);
 const hasFormSubmitted = ref(false);
-const FORMSPARK_ACTION_URL = 'https://submit-form.com/NXAd7ScE';
 
 function toggleLightTheme() {
   document.documentElement.classList.add('light-theme');
@@ -94,6 +95,7 @@ const { value: message, errorMessage: messageError } = useField<
 >('message');
 
 const onSubmit = handleSubmit(async (formData) => {
+  formSubmittingInProcess.value = true;
   try {
     await useCustomFetch(FORMSPARK_ACTION_URL, {
       method: 'POST',
@@ -103,6 +105,8 @@ const onSubmit = handleSubmit(async (formData) => {
     hasFormSubmitted.value = true;
   } catch (error) {
     console.error(error);
+  } finally {
+    formSubmittingInProcess.value = false;
   }
 });
 </script>
@@ -470,7 +474,7 @@ const onSubmit = handleSubmit(async (formData) => {
               </div>
             </address>
           </div>
-          <form v-show="!hasFormSubmitted" @submit.prevent="onSubmit">
+          <form v-if="!hasFormSubmitted" @submit.prevent="onSubmit">
             <label for="hire-name" class="sr-only">Your name</label>
             <div>
               <p class="text-red-600" v-if="nameError">{{ nameError }}</p>
@@ -509,10 +513,16 @@ const onSubmit = handleSubmit(async (formData) => {
               ></textarea>
             </div>
             <div class="hire-action">
-              <button type="submit" class="btn btn--raised">Send</button>
+              <button
+                :disabled="formSubmittingInProcess"
+                type="submit"
+                class="btn btn--raised"
+              >
+                Send
+              </button>
             </div>
           </form>
-          <div v-show="hasFormSubmitted">
+          <div v-else>
             <h3 class="title">
               Form submission successful.
               <img
