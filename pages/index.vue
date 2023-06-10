@@ -88,7 +88,9 @@ const { handleSubmit } = useForm({
 
 const { value: email, errorMessage: emailError } = useField('email');
 const { value: name, errorMessage: nameError } = useField('name');
-const { value: message, errorMessage: messageError } = useField('message');
+const { value: message, errorMessage: messageError } = useField<
+  string | undefined
+>('message');
 
 const onSubmit = handleSubmit(async () => {
   try {
@@ -513,7 +515,7 @@ const onSubmit = handleSubmit(async () => {
             <div>
               <p v-if="messageError" class="text-red-600">{{ messageError }}</p>
               <textarea
-                v-model="(message as string | undefined)"
+                v-model="message"
                 id="hire-message"
                 class="input"
                 placeholder="Your message"
