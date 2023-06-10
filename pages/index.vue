@@ -514,12 +514,14 @@ const onSubmit = handleSubmit(async (formData) => {
             </div>
             <div class="hire-action">
               <button
+                v-if="!formSubmittingInProcess"
                 :disabled="formSubmittingInProcess"
                 type="submit"
                 class="btn btn--raised"
               >
                 Send
               </button>
+              <Loader v-else class="mt-4 ml-6" />
             </div>
           </form>
           <div v-else>
