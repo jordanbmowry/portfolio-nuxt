@@ -100,6 +100,7 @@ const onSubmit = handleSubmit(async (formData) => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: JSON.stringify(formData),
     });
+    hasFormSubmitted.value = true;
   } catch (error) {
     console.error(error);
   }
