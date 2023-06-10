@@ -94,20 +94,17 @@ const { value: message, errorMessage: messageError } = useField<
 
 const onSubmit = handleSubmit(async () => {
   try {
-    const formData = new FormData(formRef.value as HTMLFormElement);
-
-    const body = new URLSearchParams();
-
-    for (let [key, value] of formData.entries()) {
-      body.append(key, value as string);
-    }
-
-    await useCustomFetch(`/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString(),
-    });
-    hasFormSubmitted.value = true;
+    // const formData = new FormData(formRef.value as HTMLFormElement);
+    // const body = new URLSearchParams();
+    // for (let [key, value] of formData.entries()) {
+    //   body.append(key, value as string);
+    // }
+    // await useCustomFetch(`/`, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    //   body: body.toString(),
+    // });
+    // hasFormSubmitted.value = true;
   } catch (error) {
     console.error(error);
   }
@@ -478,9 +475,9 @@ const onSubmit = handleSubmit(async () => {
             </address>
           </div>
           <form
-            v-if="!hasFormSubmitted"
+            v-show="!hasFormSubmitted"
             action="https://submit-form.com/NXAd7ScE"
-            @submit.prevent="onSubmit"
+            @submit="onSubmit"
             ref="formRef"
             name="contact"
           >
@@ -525,7 +522,7 @@ const onSubmit = handleSubmit(async () => {
               <button type="submit" class="btn btn--raised">Send</button>
             </div>
           </form>
-          <div v-else>
+          <div v-show="hasFormSubmitted">
             <h3 class="title">
               Form submission successful.
               <img
