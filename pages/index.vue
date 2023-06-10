@@ -8,7 +8,6 @@ let scrollDownButton: HTMLElement;
 let aboutMeElement: HTMLElement;
 let hasScrolledToAboutMe = ref<boolean>(false);
 const formRef = ref<null | HTMLFormElement>(null);
-const submitterRef = ref<null | HTMLButtonElement>(null);
 
 function toggleLightTheme() {
   document.documentElement.classList.add('light-theme');
@@ -517,9 +516,7 @@ const onSubmit = handleSubmit(async () => {
               ></textarea>
             </div>
             <div class="hire-action">
-              <button ref="submitterRef" type="submit" class="btn btn--raised">
-                Send
-              </button>
+              <button type="submit" class="btn btn--raised">Send</button>
             </div>
           </form>
         </div>
