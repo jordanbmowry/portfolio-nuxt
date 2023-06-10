@@ -7,8 +7,9 @@ let toggleDarkThemeButton: HTMLElement;
 let scrollDownButton: HTMLElement;
 let aboutMeElement: HTMLElement;
 let hasScrolledToAboutMe = ref<boolean>(false);
-const formRef = ref<null | HTMLFormElement>(null);
+
 const hasFormSubmitted = ref(false);
+const FORMSPARK_ACTION_URL = 'https://submit-form.com/NXAd7ScE';
 
 function toggleLightTheme() {
   document.documentElement.classList.add('light-theme');
@@ -92,19 +93,13 @@ const { value: message, errorMessage: messageError } = useField<
   string | undefined
 >('message');
 
-const onSubmit = handleSubmit(async () => {
+const onSubmit = handleSubmit(async (formData) => {
   try {
-    // const formData = new FormData(formRef.value as HTMLFormElement);
-    // const body = new URLSearchParams();
-    // for (let [key, value] of formData.entries()) {
-    //   body.append(key, value as string);
-    // }
-    // await useCustomFetch(`/`, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //   body: body.toString(),
-    // });
-    // hasFormSubmitted.value = true;
+    await useCustomFetch(FORMSPARK_ACTION_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: JSON.stringify(formData),
+    });
   } catch (error) {
     console.error(error);
   }
@@ -474,13 +469,7 @@ const onSubmit = handleSubmit(async () => {
               </div>
             </address>
           </div>
-          <form
-            v-show="!hasFormSubmitted"
-            action="https://submit-form.com/NXAd7ScE"
-            @submit="onSubmit"
-            ref="formRef"
-            name="contact"
-          >
+          <form v-show="!hasFormSubmitted" @submit.prevent="onSubmit">
             <label for="hire-name" class="sr-only">Your name</label>
             <div>
               <p class="text-red-600" v-if="nameError">{{ nameError }}</p>
