@@ -19,6 +19,8 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@tailwindcss/typography": "^0.5.9",
-    "nuxt-storage": "^1.2.2"
+    "@vee-validate/nuxt": "^4.9.6",
+    "nuxt-storage": "^1.2.2",
+    "yup": "^1.2.0"
   }
 }

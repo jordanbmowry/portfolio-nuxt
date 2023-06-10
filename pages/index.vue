@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { useField, useForm } from 'vee-validate';
+import * as yup from 'yup';
+
 let toggleLightThemeButton: HTMLElement;
 let toggleDarkThemeButton: HTMLElement;
 let scrollDownButton: HTMLElement;
 let aboutMeElement: HTMLElement;
 let hasScrolledToAboutMe = ref<boolean>(false);
+const formRef = ref<null | HTMLFormElement>(null);
+const submitterRef = ref<null | HTMLButtonElement>(null);
 
 function toggleLightTheme() {
   document.documentElement.classList.add('light-theme');
@@ -69,6 +74,38 @@ onUnmounted(() => {
       hasScrolledToAboutMe.value = true;
     });
   }
+});
+
+const validations = yup.object({
+  name: yup.string().required(),
+  email: yup.string().required().email(),
+  message: yup.string().required(),
+});
+
+const { handleSubmit } = useForm({
+  validationSchema: validations,
+});
+
+const { value: email, errorMessage: emailError } = useField('email');
+const { value: name, errorMessage: nameError } = useField('name');
+const { value: message, errorMessage: messageError } = useField('message');
+
+const onSubmit = handleSubmit(async () => {
+  const formData = new FormData(formRef.value as HTMLFormElement);
+
+  const body = new URLSearchParams();
+
+  for (let [key, value] of formData.entries()) {
+    body.append(key, value as string);
+  }
+
+  console.log(body.toString());
+
+  await useCustomFetch(`/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body.toString(),
+  });
 });
 </script>
 
@@ -435,34 +472,54 @@ onUnmounted(() => {
               </div>
             </address>
           </div>
-          <form netlify>
+          <form
+            @submit.prevent="onSubmit"
+            ref="formRef"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+          >
             <label for="hire-name" class="sr-only">Your name</label>
-            <input
-              id="hire-name"
-              name="name"
-              type="text"
-              autocomplete="name"
-              class="input"
-              placeholder="Your name"
-            />
+            <div>
+              <p class="text-red-600" v-if="nameError">{{ nameError }}</p>
+              <input
+                v-model="name"
+                id="hire-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                class="input"
+                placeholder="Your name"
+              />
+            </div>
             <label for="hire-email" class="sr-only">Your email</label>
-            <input
-              id="hire-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              class="input"
-              placeholder="Your email"
-            />
+            <div>
+              <p class="text-red-600" v-if="emailError">{{ emailError }}</p>
+              <input
+                v-model="email"
+                id="hire-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                class="input"
+                placeholder="Your email"
+              />
+            </div>
             <label for="hire-message" class="sr-only">Your message</label>
-            <textarea
-              id="hire-message"
-              class="input"
-              placeholder="Your message"
-              name="message"
-            ></textarea>
+            <div>
+              <p v-if="messageError" class="text-red-600">{{ messageError }}</p>
+              <textarea
+                v-model="(message as string | undefined)"
+                id="hire-message"
+                class="input"
+                placeholder="Your message"
+                name="message"
+              ></textarea>
+            </div>
             <div class="hire-action">
-              <button type="submit" class="btn btn--raised">Send</button>
+              <button ref="submitterRef" type="submit" class="btn btn--raised">
+                Send
+              </button>
             </div>
           </form>
         </div>
