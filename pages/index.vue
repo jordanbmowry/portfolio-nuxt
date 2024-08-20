@@ -475,6 +475,12 @@ const onSubmit = handleSubmit(async (formData) => {
           <li class="tag">Fastify</li>
           <li class="tag">Python</li>
           <li class="tag">Prompt Engineering</li>
+          <li class="tag">Docker</li>
+          <li class="tag">Kubernetes</li>
+          <li class="tag">CI/CD</li>
+          <li class="tag">AWS</li>
+          <li class="tag">Serverless</li>
+          <li class="tag">Cloud Computing</li>
         </ul>
       </div>
     </section>
