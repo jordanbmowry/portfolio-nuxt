@@ -196,6 +196,26 @@ const onSubmit = handleSubmit(async (formData) => {
           </div>
           <div>
             <p class="text--lg">
+              My experience also includes a role as an OutSystems Developer from
+              October 2023 to May 2024, where I built user-friendly web and
+              mobile apps using OutSystems to streamline complex business
+              processes. I championed low-code development for faster delivery,
+              fostered cross-departmental collaboration, and optimized app
+              UX/UI. My key achievements include helping to build a mobile
+              banking application for a UK-based client and contributing to the
+              development of a sophisticated web application used by an
+              insurance company to manage workers' compensation claims.
+            </p>
+            <p class="text--lg">
+              Recently, I have further enhanced my skills in cloud technologies,
+              particularly with AWS, by completing the Udacity Nanodegree for
+              Cloud Developer. This program deepened my expertise in cloud
+              architecture, serverless applications, and deployment strategies.
+              I gained hands-on experience with AWS services such as Lambda, S3,
+              DynamoDB, and API Gateway, allowing me to design and implement
+              scalable, secure, and cost-effective cloud solutions.
+            </p>
+            <p class="text--lg">
               My skills encompass a wide range of technologies, including
               front-end development with CSS, HTML, JavaScript, React, Vue.js,
               Nuxt, and TypeScript. On the back-end, I excel in utilizing
@@ -221,7 +241,6 @@ const onSubmit = handleSubmit(async (formData) => {
         </div>
       </div>
     </section>
-
     <section
       id="portfolio"
       class="pb-48 scroll-mt-5 layout-section"
@@ -229,6 +248,43 @@ const onSubmit = handleSubmit(async (formData) => {
     >
       <div class="max-w-5xl px-5 mx-auto">
         <h2 class="title--sm mb-9">Portfolio</h2>
+
+        <div class="flex mb-24 portfolio" style="gap: var(--gap)">
+          <img
+            src="~/assets/images/portfolio-05.png"
+            width="300"
+            height="300"
+            alt="Serverless TODO Application"
+            class="portfolio-screenshot rounded-full"
+          />
+          <div>
+            <h3 class="title">Serverless TODO Application</h3>
+            <p class="text">
+              The Serverless TODO Application is a full-stack project developed
+              as part of the Udacity Cloud Developer Nanodegree program. This
+              application allows users to manage their tasks, providing features
+              like creating, updating, deleting, and retrieving TODO items. Each
+              item can have an optional attachment image.
+            </p>
+            <p class="text">
+              The backend is built with AWS Lambda and managed through the
+              Serverless Framework. It uses API Gateway for routing, DynamoDB
+              for storage, and S3 for file uploads. User authentication is
+              handled through Auth0, ensuring secure access to data.
+            </p>
+            <p class="text">
+              This project showcases my ability to develop scalable, serverless
+              applications on AWS, using a combination of infrastructure as
+              code, cloud services, and modern development practices.
+            </p>
+            <a
+              href="https://magnificent-eclair-0c01b7.netlify.app/"
+              class="btn btn--line"
+              target="_blank"
+              >Visit</a
+            >
+          </div>
+        </div>
         <div class="flex mb-24 portfolio" style="gap: var(--gap)">
           <img
             src="~/assets/images/portfolio-01.png"
