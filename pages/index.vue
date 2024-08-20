@@ -481,6 +481,7 @@ const onSubmit = handleSubmit(async (formData) => {
           <li class="tag">AWS</li>
           <li class="tag">Serverless</li>
           <li class="tag">Cloud Computing</li>
+          <li class="tag">OutSystems</li>
         </ul>
       </div>
     </section>
