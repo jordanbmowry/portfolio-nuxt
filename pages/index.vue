@@ -120,7 +120,7 @@ const onSubmit = handleSubmit(async (formData) => {
     >
       <div class="max-w-5xl px-5 mx-auto">
         <h1 class="title--lg mb-0">Jordan B Mowry</h1>
-        <h2 class="title--lg mt-0 mb-10 break-words">Web Developer</h2>
+        <h2 class="title--lg mt-0 mb-10 break-words">Software Engineer</h2>
         <img
           src="~/assets/images/profile-img.png"
           width="300"
@@ -129,7 +129,7 @@ const onSubmit = handleSubmit(async (formData) => {
           class="rounded-full mx-auto"
         />
         <p class="text--xl">
-          Jordan is a web developer based in Bloomington, Indiana.
+          Jordan is a software engineer based in Bloomington, Indiana.
         </p>
         <p class="text--xl my-0">
           Jordan brings your idea to life with
