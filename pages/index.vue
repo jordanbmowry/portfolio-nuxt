@@ -201,11 +201,11 @@ const onSubmit = handleSubmit(async (formData) => {
               technologies ensures innovative solutions for every project.
             </p>
             <p class="text--lg">
-              My commitment to staying up-to-date with the latest trends and
-              technologies in the field enables me to deliver innovative
+              His commitment to staying up-to-date with the latest trends and
+              technologies in the field enables him to deliver innovative
               solutions and provide valuable insights to drive project success.
-              I am constantly seeking new challenges and opportunities to expand
-              my skill set and contribute to impactful projects.
+              He constantly seeks new challenges and opportunities to expand his
+              skill set and contributes to impactful projects.
             </p>
             <p class="text--lg">
               Explore his projects or reach out for potential collaborations via
