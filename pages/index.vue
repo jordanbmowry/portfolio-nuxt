@@ -161,68 +161,44 @@ const onSubmit = handleSubmit(async (formData) => {
         <div class="layout-grid-half">
           <div>
             <p class="text--lg">
-              With a proven track record as a Full Stack Developer, I am
-              proficient in JavaScript, HTML, CSS, React, Vue.js, and Node.js. I
-              am passionate about solving engaging problems and have always
-              found fulfillment in building cool user interfaces that are easy
-              to use, aesthetically pleasing, and provide real solutions for
-              people.
+              With a proven track record as a Full Stack Developer, Jordan is
+              proficient in JavaScript, HTML, CSS, React, Vue.js, and Node.js.
+              He excels at building intuitive user interfaces that are both
+              aesthetically pleasing and functional.
             </p>
             <p class="text--lg">
-              In my most recent role as a Software Developer at Upwork, I
-              specialized in developing and customizing Shopify themes and
-              plugins based on client requirements. I successfully integrated
-              third-party apps and services with the Shopify platform and
-              ensured optimal performance, security, and search engine rankings
-              for Shopify stores. I also provided technical support and
-              troubleshooting while collaborating closely with clients to
-              understand their business needs and deliver tailored solutions.
-              Maintaining a high level of professionalism and responsiveness, I
-              consistently met project deadlines and exceeded client
-              expectations.
+              In his most recent role as an OutSystems Developer, Jordan built
+              user-friendly web and mobile apps to streamline complex business
+              processes. He championed low-code development, optimized app
+              UX/UI, and contributed to projects like a mobile banking app and a
+              web application for managing workers' compensation claims.
             </p>
             <p class="text--lg">
-              Prior to that, as a Junior Software Engineer at TapOnIt, I gained
-              hands-on experience in creating user-friendly web pages and mobile
-              apps using HTML, CSS, JavaScript, Vue.js, and Nuxt. Working
-              alongside designers, developers, and project managers, I
-              seamlessly integrated back-end functionality with visually
-              appealing user interface designs. I ensured website and mobile app
-              usability and accessibility while optimizing them for speed and
-              performance. My dedication to writing clean, efficient, and
-              maintainable code aligned with coding standards and best
-              practices, resulting in top-notch web designs and applications.
+              At Upwork, Jordan specialized in developing and customizing
+              Shopify themes and plugins, integrating third-party apps, and
+              ensuring optimal store performance while closely collaborating
+              with clients.
             </p>
           </div>
           <div>
             <p class="text--lg">
-              My experience also includes a role as an OutSystems Developer from
-              October 2023 to May 2024, where I built user-friendly web and
-              mobile apps using OutSystems to streamline complex business
-              processes. I championed low-code development for faster delivery,
-              fostered cross-departmental collaboration, and optimized app
-              UX/UI. My key achievements include helping to build a mobile
-              banking application for a UK-based client and contributing to the
-              development of a sophisticated web application used by an
-              insurance company to manage workers' compensation claims.
+              During his time at TapOnIt, Jordan gained experience in creating
+              user-friendly web pages and mobile apps, integrating back-end
+              functionality with appealing UI designs. His focus on clean,
+              efficient code resulted in high-quality web designs and
+              applications.
             </p>
             <p class="text--lg">
-              Recently, I have further enhanced my skills in cloud technologies,
-              particularly with AWS, by completing the Udacity Nanodegree for
-              Cloud Developer. This program deepened my expertise in cloud
-              architecture, serverless applications, and deployment strategies.
-              I gained hands-on experience with AWS services such as Lambda, S3,
-              DynamoDB, and API Gateway, allowing me to design and implement
-              scalable, secure, and cost-effective cloud solutions.
+              Jordan has also completed the Udacity Cloud Developer Nanodegree,
+              enhancing his expertise in AWS services such as Lambda, S3,
+              DynamoDB, and API Gateway, allowing him to design scalable, secure
+              cloud solutions.
             </p>
             <p class="text--lg">
-              My skills encompass a wide range of technologies, including
-              front-end development with CSS, HTML, JavaScript, React, Vue.js,
-              Nuxt, and TypeScript. On the back-end, I excel in utilizing
-              Express, Node.js, PostgreSQL, and Knex.js to build robust and
-              scalable applications. I am proficient in tools such as Chai, Git,
-              GitHub, Heroku, Linux, and Mocha, ensuring seamless development
-              workflows and efficient project management.
+              His diverse skill set spans front-end technologies like React and
+              Vue.js, and back-end development with Node.js and PostgreSQL.
+              Jordan’s commitment to staying updated with the latest
+              technologies ensures innovative solutions for every project.
             </p>
             <p class="text--lg">
               My commitment to staying up-to-date with the latest trends and
@@ -232,8 +208,8 @@ const onSubmit = handleSubmit(async (formData) => {
               my skill set and contribute to impactful projects.
             </p>
             <p class="text--lg">
-              If you'd like to explore my previous projects in detail or discuss
-              potential collaborations, please feel free to check out my
+              Explore his projects or reach out for potential collaborations via
+              the
               <a href="#portfolio">portfolio</a> or reach out via the
               <a href="#hire-me">contact form</a>.
             </p>
