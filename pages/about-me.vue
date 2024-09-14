@@ -58,9 +58,8 @@
             </p>
             <p class="text--lg">
               Explore his projects or reach out for potential collaborations via
-              the
-              <a href="#portfolio">portfolio</a> or reach out via the
-              <a href="#hire-me">contact form</a>.
+              the <NuxtLink to="/portfolio">portfolio</NuxtLink> or reach out
+              via the <NuxtLink to="/hire-me">contact form</NuxtLink>.
             </p>
           </div>
         </div>
@@ -68,3 +67,16 @@
     </section>
   </main>
 </template>
+
+<style scoped>
+a {
+  color: var(--anchor-color);
+  opacity: 0.85;
+  transition: opacity 200ms;
+  border-bottom: 1px solid var(--anchor-color);
+}
+
+a:hover {
+  opacity: 1;
+}
+</style>
