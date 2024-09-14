@@ -1,12 +1,41 @@
 <script lang="ts" setup>
 import nuxtStorage from 'nuxt-storage';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 
 const currentYear = computed(() => new Date().getFullYear());
 const lightMode = ref(true);
 
+const navigation = [
+  { name: 'HOME', href: '/', current: true, styles: 'btn btn--nav' },
+  {
+    name: 'ABOUT ME',
+    href: '/about-me',
+    current: false,
+    styles: 'btn btn--nav',
+  },
+  {
+    name: 'PORTFOLIO',
+    href: '/portfolio',
+    current: false,
+    styles: 'btn btn--nav',
+  },
+  {
+    name: 'EXPERIENCE',
+    href: '/experience',
+    current: false,
+    styles: 'btn btn--nav',
+  },
+  {
+    name: 'HIRE ME',
+    href: '/hire-me',
+    current: false,
+    styles: 'btn btn--raised',
+  },
+];
+
 onMounted(() => {
   const lightModeLocal = nuxtStorage.localStorage.getData('lightMode');
-
   if (lightModeLocal === 'true') {
     lightMode.value = true;
   } else if (lightModeLocal === 'false') {
@@ -18,90 +47,106 @@ onMounted(() => {
   }
 });
 
-watch(lightMode, async (newMode) => {
-  if (newMode) {
-    nuxtStorage.localStorage.setData('lightMode', 'true');
-  } else {
-    nuxtStorage.localStorage.setData('lightMode', 'false');
-  }
-  return document.documentElement.classList.toggle('light-theme');
+watch(lightMode, (newMode) => {
+  nuxtStorage.localStorage.setData('lightMode', newMode ? 'true' : 'false');
+  document.documentElement.classList.toggle('light-theme', newMode);
 });
 </script>
 
 <template>
-  <div>
+  <div id="app">
+    <!-- Navigation -->
     <nav>
-      <div class="max-w-5xl px-5 mx-auto mt-8">
-        <div class="py-6 flex justify-between items-center">
-          <img
-            src="~/assets/svgs/logo.svg"
-            alt="Jordan B Mowry logo"
-            width="45"
-            height="43"
-          />
-          <ul class="pl-0 list-none flex gap-2.5 nav-links">
-            <li>
-              <a href="#about-me" class="btn btn--nav">About me</a>
-            </li>
-            <li>
-              <a href="#portfolio" class="btn btn--nav">Portfolio</a>
-            </li>
-            <li>
-              <a href="#experience" class="btn btn--nav">Experience</a>
-            </li>
-
-            <li class="nav-hire-me">
-              <a href="#hire-me" class="btn btn--raised">Hire me</a>
-            </li>
-          </ul>
+      <Disclosure as="div" class="relative bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button -->
+              <DisclosureButton
+                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                @click="openMenu = !openMenu"
+              >
+                <span class="sr-only">Open main menu</span>
+                <Bars3Icon
+                  v-if="!openMenu"
+                  class="block h-6 w-6"
+                  aria-hidden="true"
+                />
+              </DisclosureButton>
+            </div>
+            <div
+              class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
+            >
+              <div class="flex flex-shrink-0 items-center">
+                <img
+                  src="~/assets/svgs/logo.svg"
+                  alt="Jordan B Mowry logo"
+                  width="45"
+                  height="43"
+                />
+              </div>
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <a
+                    v-for="item in navigation"
+                    :key="item.name"
+                    :href="item.href"
+                    :class="item.styles"
+                    :aria-current="item.current ? 'page' : undefined"
+                    >{{ item.name }}</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <button
-        :class="{ active: lightMode }"
-        v-if="lightMode"
-        id="light-icon"
-        aria-label="Toggle dark theme"
-        class="toggle-theme"
-        @click="lightMode = false"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 -960 960 960"
-          width="24"
+        <DisclosurePanel
+          v-if="openMenu"
+          class="fixed inset-0 top-16 left-0 z-50 bg-gray-800 sm:hidden"
         >
-          <path
-            d="M479.765-340Q538-340 579-380.765q41-40.764 41-99Q620-538 579.235-579q-40.764-41-99-41Q422-620 381-579.235q-41 40.764-41 99Q340-422 380.765-381q40.764 41 99 41Zm.235 60q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM70-450q-12.75 0-21.375-8.675Q40-467.351 40-480.175 40-493 48.625-501.5T70-510h100q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T170-450H70Zm720 0q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T790-510h100q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T890-450H790ZM479.825-760Q467-760 458.5-768.625T450-790v-100q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-890v100q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625Zm0 720Q467-40 458.5-48.625T450-70v-100q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-170v100q0 12.75-8.675 21.375Q492.649-40 479.825-40ZM240-678l-57-56q-9-9-8.629-21.603.37-12.604 8.526-21.5 8.896-8.897 21.5-8.897Q217-786 226-777l56 57q8 9 8 21t-8 20.5q-8 8.5-20.5 8.5t-21.5-8Zm494 495-56-57q-8-9-8-21.375T678.5-282q8.5-9 20.5-9t21 9l57 56q9 9 8.629 21.603-.37 12.604-8.526 21.5-8.896 8.897-21.5 8.897Q743-174 734-183Zm-56-495q-9-9-9-21t9-21l56-57q9-9 21.603-8.629 12.604.37 21.5 8.526 8.897 8.896 8.897 21.5Q786-743 777-734l-57 56q-8 8-20.364 8-12.363 0-21.636-8ZM182.897-182.897q-8.897-8.896-8.897-21.5Q174-217 183-226l57-56q8.8-9 20.9-9 12.1 0 20.709 9Q291-273 291-261t-9 21l-56 57q-9 9-21.603 8.629-12.604-.37-21.5-8.526ZM480-480Z"
-            fill="var(--light-icon)"
-          />
-        </svg>
-      </button>
-      <button
-        v-else
-        id="dark-icon"
-        aria-label="Toggle light theme"
-        class="toggle-theme"
-        :class="{ active: !lightMode }"
-        @click="lightMode = true"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          enable-background="new 0 0 24 24"
-          height="24px"
-          viewBox="0 0 24 24"
-          width="24px"
-        >
-          <rect fill="none" height="24" width="24" />
-          <path
-            d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"
-            fill="var(--light-icon)"
-          />
-        </svg>
-      </button>
+          <!-- Backdrop -->
+          <div
+            class="fixed inset-0 bg-black bg-opacity-50"
+            aria-hidden="true"
+            @click="openMenu = false"
+          ></div>
+          <div class="relative z-10 space-y-1 px-2 pb-3 pt-2">
+            <DisclosureButton
+              v-for="item in navigation"
+              :key="item.name"
+              as="a"
+              :href="item.href"
+              :class="[
+                item.current
+                  ? 'bg-gray-900 text-white'
+                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                'block rounded-md px-3 py-2 text-base font-medium',
+              ]"
+              :aria-current="item.current ? 'page' : undefined"
+              @click="openMenu = false"
+            >
+              {{ item.name }}
+            </DisclosureButton>
+            <DisclosureButton
+              v-if="openMenu"
+              class="absolute top-4 right-4 p-2 text-gray-400 hover:text-white focus:outline-none"
+              @click="openMenu = false"
+            >
+              <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+            </DisclosureButton>
+          </div>
+        </DisclosurePanel>
+      </Disclosure>
     </nav>
-    <slot />
-    <footer class="mb-5">
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer>
       <div class="max-w-5xl px-5 mx-auto">
         <div class="footer">
           <div class="flex items-center" style="gap: 16px">
@@ -150,30 +195,89 @@ watch(lightMode, async (newMode) => {
         </div>
       </div>
     </footer>
+
+    <!-- Theme Toggle Buttons -->
+    <button
+      :class="{ active: lightMode }"
+      v-if="lightMode"
+      id="light-icon"
+      aria-label="Toggle dark theme"
+      class="toggle-theme"
+      @click="lightMode = false"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 -960 960 960"
+        width="24"
+      >
+        <path
+          d="M479.765-340Q538-340 579-380.765q41-40.764 41-99Q620-538 579.235-579q-40.764-41-99-41Q422-620 381-579.235q-41 40.764-41 99Q340-422 380.765-381q40.764 41 99 41Zm.235 60q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM70-450q-12.75 0-21.375-8.675Q40-467.351 40-480.175 40-493 48.625-501.5T70-510h100q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T170-450H70Zm720 0q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T790-510h100q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T890-450H790ZM479.825-760Q467-760 458.5-768.625T450-790v-100q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-890v100q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625Zm0 720Q467-40 458.5-48.625T450-70v-100q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-170v100q0 12.75-8.675 21.375Q492.649-40 479.825-40ZM240-678l-57-56q-9-9-8.629-21.603.37-12.604 8.526-21.5 8.896-8.897 21.5-8.897Q217-786 226-777l56 57q8 9 8 21t-8 20.5q-8 8.5-20.5 8.5t-21.5-8Zm494 495-56-57q-8-9-8-21.375T678.5-282q8.5-9 20.5-9t21 9l57 56q9 9 8.629 21.603-.37 12.604-8.526 21.5-8.896 8.897-21.5 8.897Q743-174 734-183Zm-56-495q-9-9-9-21t9-21l56-57q9-9 21.603-8.629 12.604.37 21.5 8.526 8.897 8.896 8.897 21.5Q786-743 777-734l-57 56q-8 8-20.364 8-12.363 0-21.636-8ZM182.897-182.897q-8.897-8.896-8.897-21.5Q174-217 183-226l57-56q8.8-9 20.9-9 12.1 0 20.709 9Q291-273 291-261t-9 21l-56 57q-9 9-21.603 8.629-12.604-.37-21.5-8.526ZM480-480Z"
+          fill="var(--light-icon)"
+        />
+      </svg>
+    </button>
+    <button
+      v-else
+      id="dark-icon"
+      aria-label="Toggle light theme"
+      class="toggle-theme"
+      :class="{ active: !lightMode }"
+      @click="lightMode = true"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        enable-background="new 0 0 24 24"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+      >
+        <rect fill="none" height="24" width="24" />
+        <path
+          d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"
+          fill="var(--light-icon)"
+        />
+      </svg>
+    </button>
   </div>
 </template>
 
-<style>
-@media (max-width: 48.5rem) {
-  .nav-links li:not(:last-child) {
-    display: none;
-  }
+<style scoped>
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
-#toggle-theme {
-  all: inherit;
-  outline: revert;
-  box-sizing: border-box;
-  cursor: pointer;
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--nav-background);
+}
+
+footer {
+  margin-top: auto;
+}
+
+.toggle-theme {
   position: fixed;
   top: 5px;
   right: 5px;
-  z-index: 1;
+  z-index: 1001;
   padding: 5px;
-  transition: translate 180ms;
+  cursor: pointer;
+  transition: transform 180ms;
 }
-#toggle-theme:active {
-  translate: 1px, 1px;
+
+.toggle-theme:active {
+  transform: translate(1px, 1px);
 }
 
 .footer {
