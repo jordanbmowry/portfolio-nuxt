@@ -1,12 +1,10 @@
 <script lang="ts" setup>
-import nuxtStorage from 'nuxt-storage';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
+import { Bars3Icon } from '@heroicons/vue/24/outline';
 
 const currentYear = computed(() => new Date().getFullYear());
 const lightMode = ref(true);
 const openMenu = ref(false);
-
 const navigation = [
   { name: 'HOME', href: '/', current: true, styles: 'btn btn--nav' },
   {
@@ -36,20 +34,18 @@ const navigation = [
 ];
 
 onMounted(() => {
-  const lightModeLocal = nuxtStorage.localStorage.getData('lightMode');
-  if (lightModeLocal === 'true') {
-    lightMode.value = true;
-  } else if (lightModeLocal === 'false') {
+  const lightModeLocal = localStorage.getItem('lightMode');
+  if (lightModeLocal === 'false') {
     lightMode.value = false;
   } else {
-    const val = document.documentElement.classList.contains('light-theme');
-    nuxtStorage.localStorage.setData('lightMode', `${val}`);
-    lightMode.value = val;
+    lightMode.value = true;
   }
+  document.documentElement.classList.toggle('light-theme', lightMode.value);
 });
 
+// Watch for changes in lightMode and update localStorage and the class
 watch(lightMode, (newMode) => {
-  nuxtStorage.localStorage.setData('lightMode', newMode ? 'true' : 'false');
+  localStorage.setItem('lightMode', newMode ? 'true' : 'false');
   document.documentElement.classList.toggle('light-theme', newMode);
 });
 </script>
@@ -199,12 +195,10 @@ watch(lightMode, (newMode) => {
     <!-- Theme Toggle Buttons -->
     <div v-if="!openMenu">
       <button
-        :class="{ active: lightMode }"
-        v-if="lightMode"
-        id="light-icon"
-        aria-label="Toggle dark theme"
+        v-if="!lightMode"
+        @click="lightMode = true"
         class="toggle-theme"
-        @click="lightMode = false"
+        aria-label="Switch to light mode"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -220,11 +214,9 @@ watch(lightMode, (newMode) => {
       </button>
       <button
         v-else
-        id="dark-icon"
-        aria-label="Toggle light theme"
+        @click="lightMode = false"
         class="toggle-theme"
-        :class="{ active: !lightMode }"
-        @click="lightMode = true"
+        aria-label="Switch to dark mode"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
