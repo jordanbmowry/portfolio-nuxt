@@ -1,5 +1,8 @@
 <template>
-  <div class="flex mb-24 portfolio" :style="{ gap: 'var(--gap)' }">
+  <div
+    :class="['flex mb-24 portfolio', { 'portfolio-reverse': index % 2 !== 0 }]"
+    :style="{ gap: 'var(--gap)' }"
+  >
     <NuxtImg
       :src="imageSrc"
       :alt="altText"
@@ -9,7 +12,7 @@
     />
     <div>
       <h3 class="title">{{ title }}</h3>
-      <p class="text" v-for="(paragraph, index) in description" :key="index">
+      <p class="text" v-for="(paragraph, i) in description" :key="i">
         {{ paragraph }}
       </p>
       <a :href="link" class="btn btn--line" target="_blank">Visit</a>
@@ -24,6 +27,7 @@ interface Props {
   title: string;
   description: string[];
   link: string;
+  index: number;
 }
 const props = defineProps<Props>();
 </script>
@@ -33,6 +37,10 @@ const props = defineProps<Props>();
   display: flex;
   gap: var(--gap);
   margin-bottom: 100px;
+}
+
+.portfolio-reverse {
+  flex-direction: row-reverse;
 }
 
 .portfolio-screenshot {

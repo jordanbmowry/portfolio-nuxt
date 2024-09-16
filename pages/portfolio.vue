@@ -15,6 +15,7 @@
           :title="item.title"
           :description="item.description"
           :link="item.link"
+          :index="index"
         />
       </div>
     </section>
@@ -87,10 +88,6 @@ const portfolioItems = [
   display: flex;
   gap: var(--gap);
   margin-bottom: 100px;
-}
-
-.portfolio:nth-child(odd) .portfolio-screenshot {
-  order: 1;
 }
 
 @media (max-width: 37.5rem) {
