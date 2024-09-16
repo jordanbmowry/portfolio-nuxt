@@ -49,7 +49,7 @@ const navigation = [
                 <span class="sr-only">Open main menu</span>
                 <Bars3Icon
                   v-if="!openMenu"
-                  class="block h-6 w-6"
+                  class="block h-8 w-8"
                   aria-hidden="true"
                 />
               </DisclosureButton>
@@ -87,7 +87,7 @@ const navigation = [
         >
           <!-- Backdrop -->
           <div
-            class="fixed inset-0 bg-black bg-opacity-50"
+            class="fixed inset-0 bg-black bg-opacity-75"
             aria-hidden="true"
           ></div>
           <div class="relative z-10 space-y-1 px-2 pb-3 pt-2">
@@ -100,7 +100,7 @@ const navigation = [
                 item.current
                   ? 'bg-gray-900 text-white'
                   : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
+                'block rounded-md px-3 py-3 text-lg font-medium',
               ]"
               :aria-current="item.current ? 'page' : undefined"
               @click="openMenu = false"
@@ -112,7 +112,7 @@ const navigation = [
               class="absolute top-4 right-4 p-2 text-gray-400 hover:text-white focus:outline-none"
               @click="openMenu = false"
             >
-              <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon class="h-8 w-8" aria-hidden="true" />
             </DisclosureButton>
           </div>
         </DisclosurePanel>
