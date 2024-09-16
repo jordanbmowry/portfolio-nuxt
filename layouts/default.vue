@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
+// @ts-ignore
+import LogoSvg from '~/assets/svgs/logo.svg?component';
 
 const currentYear = computed(() => new Date().getFullYear());
 const openMenu = ref(false);
@@ -58,12 +60,7 @@ const navigation = [
               class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
             >
               <div class="flex flex-shrink-0 items-center">
-                <NuxtImg
-                  src="/svgs/logo.svg"
-                  alt="Jordan B Mowry logo"
-                  width="45"
-                  height="43"
-                />
+                <LogoSvg width="45" height="43" alt="Jordan B Mowry logo" />
               </div>
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
@@ -129,12 +126,7 @@ const navigation = [
       <div class="max-w-5xl px-5 mx-auto">
         <div class="footer">
           <div class="flex items-center" style="gap: 16px">
-            <NuxtImg
-              src="/svgs/logo.svg"
-              alt="Jordan Mowry logo"
-              width="45"
-              height="43"
-            />
+            <LogoSvg width="45" height="43" alt="Jordan B Mowry logo" />
             <div>
               <p class="text--bold mb-0">
                 &copy;{{ currentYear }} Jordan Mowry
