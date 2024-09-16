@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   modules: [
+    '@nuxt/image',
     '@vee-validate/nuxt',
     '@nuxtjs/tailwindcss',
     'nuxt-schema-org',

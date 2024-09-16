@@ -9,8 +9,8 @@
         <h2 class="title--sm mb-9">Portfolio</h2>
 
         <div class="flex mb-24 portfolio" style="gap: var(--gap)">
-          <img
-            src="~/assets/images/portfolio-05.png"
+          <NuxtImg
+            src="/images/portfolio-05.png"
             width="300"
             height="300"
             alt="Serverless TODO Application"
@@ -45,8 +45,8 @@
           </div>
         </div>
         <div class="flex mb-24 portfolio" style="gap: var(--gap)">
-          <img
-            src="~/assets/images/portfolio-01.png"
+          <NuxtImg
+            src="/images/portfolio-01.png"
             width="300"
             height="300"
             alt="Restaurant reservations app"
@@ -87,8 +87,8 @@
           </div>
         </div>
         <div class="portfolio">
-          <img
-            src="~/assets/images/portfolio-02.png"
+          <NuxtImg
+            src="/images/portfolio-02.png"
             width="300"
             height="300"
             alt="We Love Movies app"
@@ -129,8 +129,8 @@
         </div>
 
         <div class="portfolio">
-          <img
-            src="~/assets/images/portfolio-03.png"
+          <NuxtImg
+            src="/images/portfolio-03.png"
             width="300"
             height="300"
             alt="Decoder Ring"
@@ -172,8 +172,8 @@
         </div>
 
         <div class="portfolio">
-          <img
-            src="~/assets/images/portfolio-04.png"
+          <NuxtImg
+            src="/images/portfolio-04.png"
             width="300"
             height="300"
             alt="Flashcard App"

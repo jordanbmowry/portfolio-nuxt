@@ -8,8 +8,8 @@
       <div class="max-w-5xl px-5 mx-auto">
         <h1 class="title--lg mb-0">Jordan B Mowry</h1>
         <h2 class="title--lg mt-0 mb-10 break-words">Software Engineer</h2>
-        <img
-          src="~/assets/images/profile-img.png"
+        <NuxtImg
+          src="/images/profile-img.png"
           width="300"
           height="300"
           alt="Jordan Mowry profile photo"

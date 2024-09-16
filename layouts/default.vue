@@ -58,8 +58,8 @@ const navigation = [
               class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
             >
               <div class="flex flex-shrink-0 items-center">
-                <img
-                  src="~/assets/svgs/logo.svg"
+                <NuxtImg
+                  src="/svgs/logo.svg"
                   alt="Jordan B Mowry logo"
                   width="45"
                   height="43"
@@ -129,8 +129,8 @@ const navigation = [
       <div class="max-w-5xl px-5 mx-auto">
         <div class="footer">
           <div class="flex items-center" style="gap: 16px">
-            <img
-              src="~/assets/svgs/logo.svg"
+            <NuxtImg
+              src="/svgs/logo.svg"
               alt="Jordan Mowry logo"
               width="45"
               height="43"

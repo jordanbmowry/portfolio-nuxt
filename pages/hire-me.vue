@@ -148,9 +148,9 @@ const onSubmit = handleSubmit(async (formData) => {
           <div v-else>
             <h3 class="title">
               Form submission successful.
-              <img
+              <NuxtImage
                 class="ml-4 inline-block"
-                src="~/assets/images/send.png"
+                src="/images/send.png"
                 alt="paper plane"
               />
             </h3>
