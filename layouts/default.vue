@@ -3,6 +3,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 // @ts-ignore
 import LogoSvg from '~/assets/svgs/logo.svg?component';
+// @ts-ignore
+import LinkedInSvg from '~/assets/svgs/linkedin.svg?component';
+// @ts-ignore
+import UpworkSvg from '~/assets/svgs/upwork.svg?component';
 
 const currentYear = computed(() => new Date().getFullYear());
 const openMenu = ref(false);
@@ -137,7 +141,6 @@ const navigation = [
             </div>
           </div>
           <div class="flex items-center" style="gap: 16px">
-            <p class="text--sm">@jordanbmowry on Social Media</p>
             <ul class="list-none flex" style="gap: 16px">
               <li>
                 <a
@@ -145,20 +148,16 @@ const navigation = [
                   class="cursor-pointer"
                   target="_blank"
                 >
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0ZM7.68101 13.252H11.307V24.1464H7.68101V13.252ZM11.5479 9.8818C11.5244 8.8136 10.7605 8 9.5201 8C8.27969 8 7.46875 8.8136 7.46875 9.8818C7.46875 10.9279 8.25572 11.7649 9.47304 11.7649H9.49621C10.7605 11.7649 11.5479 10.9279 11.5479 9.8818ZM20.2088 12.9961C22.5948 12.9961 24.3836 14.5535 24.3836 17.8998L24.3834 24.1464H20.7576V18.3178C20.7576 16.8538 20.2329 15.8548 18.9203 15.8548C17.9186 15.8548 17.3219 16.5283 17.0599 17.1788C16.964 17.4119 16.9404 17.7367 16.9404 18.0623V24.1467H13.3141C13.3141 24.1467 13.3619 14.2745 13.3141 13.2522H16.9404V14.7953C17.4217 14.0535 18.2836 12.9961 20.2088 12.9961Z"
-                      fill="var(--light-icon)"
-                    />
-                  </svg>
+                  <LinkedInSvg width="32" height="32" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.upwork.com/freelancers/~013dd409a4785bf8f3"
+                  class="cursor-pointer"
+                  target="_blank"
+                >
+                  <UpworkSvg width="32" height="32" />
                 </a>
               </li>
             </ul>
