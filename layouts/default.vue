@@ -141,6 +141,7 @@ const navigation = [
             </div>
           </div>
           <div class="flex items-center" style="gap: 16px">
+            <p class="text--sm">@jordanbmowry on</p>
             <ul class="list-none flex" style="gap: 16px">
               <li>
                 <a
