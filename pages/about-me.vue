@@ -8,6 +8,8 @@
       <div class="max-w-5xl px-5 mx-auto">
         <h2 id="heading-aboutme" class="title--sm mb-9">About Me</h2>
         <NuxtImg
+          height="1126"
+          width="2000"
           src="/images/about_me.JPG"
           alt="Profile image"
           class="mx-auto my-2"
