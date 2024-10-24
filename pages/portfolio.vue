@@ -29,7 +29,7 @@ const portfolioItems = [
   {
     imageSrc: '/images/portfolio-06.png',
     altText: 'My Audio Supplies - E-commerce Store',
-    title: 'My Audio Supplies - Shopify E-commerce Store',
+    title: 'My Audio Supplies',
     description: [
       'My Audio Supplies is an e-commerce platform specializing in DJ equipment and audio supplies. This store is built on Shopify using the premium Expanse theme, with extensive custom theme development to enhance functionality and user experience.',
       'I customized the theme to showcase high-ticket items effectively, optimized the site for conversions, and integrated various Shopify features to streamline the shopping experience. The project demonstrates my proficiency in Shopify theme development, Liquid templating, and responsive design tailored for a modern e-commerce store.',
