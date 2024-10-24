@@ -7,6 +7,11 @@
     >
       <div class="max-w-5xl px-5 mx-auto">
         <h2 id="heading-aboutme" class="title--sm mb-9">About Me</h2>
+        <NuxtImg
+          src="/images/about_me.JPG"
+          alt="Profile image"
+          class="mx-auto my-2"
+        />
         <div class="layout-grid-half">
           <div>
             <p class="text--lg">

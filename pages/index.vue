@@ -9,10 +9,10 @@
         <h1 class="title--lg mb-0">Jordan B Mowry</h1>
         <h2 class="title--lg mt-0 mb-10 break-words">Software Engineer</h2>
         <NuxtImg
-          src="/images/profile-img.png"
+          src="https://res.cloudinary.com/dapeg18ql/image/upload/v1729273440/profile_image.png"
+          alt="Profile image"
           width="300"
           height="300"
-          alt="Jordan Mowry profile photo"
           class="rounded-full mx-auto"
         />
         <p class="text--xl">
