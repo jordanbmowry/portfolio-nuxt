@@ -13,7 +13,7 @@
           alt="Profile image"
           width="300"
           height="300"
-          class="rounded-full mx-auto"
+          class="rounded-full mx-auto my-12"
         />
         <p class="text--xl">
           Jordan is a software engineer based in Bloomington, Indiana.
