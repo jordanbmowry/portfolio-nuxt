@@ -38,6 +38,7 @@
 import DownloadIcon from '~/assets/svgs/download-icon.svg?component';
 
 const experienceItems = [
+  'Shopify',
   'React',
   'Vue',
   'Nuxt',
