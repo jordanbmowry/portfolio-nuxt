@@ -154,7 +154,7 @@ const navigation = [
               </li>
               <li>
                 <a
-                  href="https://www.upwork.com/freelancers/~013dd409a4785bf8f3"
+                  href="https://www.upwork.com/freelancers/~01a20a180b9ed432fc?mp_source=share"
                   class="cursor-pointer"
                   target="_blank"
                 >
