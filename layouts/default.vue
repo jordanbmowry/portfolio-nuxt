@@ -2,11 +2,11 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 // @ts-ignore
-import LogoSvg from '~/assets/svgs/logo.svg?component';
+import LogoSvg from '~/assets/icons/logo.svg?component';
 // @ts-ignore
-import LinkedInSvg from '~/assets/svgs/linkedin.svg?component';
+import LinkedInSvg from '~/assets/icons/linkedin.svg?component';
 // @ts-ignore
-import UpworkSvg from '~/assets/svgs/upwork.svg?component';
+import UpworkSvg from '~/assets/icons/upwork.svg?component';
 
 const currentYear = computed(() => new Date().getFullYear());
 const openMenu = ref(false);
@@ -21,12 +21,6 @@ const navigation = [
   {
     name: 'PORTFOLIO',
     href: '/portfolio',
-    current: false,
-    styles: 'btn btn--nav',
-  },
-  {
-    name: 'EXPERIENCE',
-    href: '/experience',
     current: false,
     styles: 'btn btn--nav',
   },
@@ -121,7 +115,7 @@ const navigation = [
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-1">
+    <main class="flex-1 pt-12">
       <slot />
     </main>
 
@@ -154,7 +148,7 @@ const navigation = [
               </li>
               <li>
                 <a
-                  href="https://www.upwork.com/freelancers/~01a20a180b9ed432fc?mp_source=share"
+                  href="https://www.upwork.com/freelancers/~01a20a180b9ed432fc"
                   class="cursor-pointer"
                   target="_blank"
                 >

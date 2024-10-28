@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 // @ts-ignore
-import LoadingSpinner from '~/assets/svgs/loading-spinner.svg?component';
+import LoadingSpinner from '~/assets/icons/loading-spinner.svg?component';
 </script>
 
 <style scoped>

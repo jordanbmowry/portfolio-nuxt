@@ -60,7 +60,7 @@ module.exports = {
           backgroundColor: 'var(--primary)',
           color: 'var(--black)',
           padding: '12px 53px 12px 24px',
-          backgroundImage: 'url("/assets/svgs/arrow-right.svg")',
+          backgroundImage: 'url("/assets/icons/arrow-right.svg")',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'right 20px center',
         },

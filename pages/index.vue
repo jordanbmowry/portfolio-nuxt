@@ -1,8 +1,8 @@
 <template>
-  <main>
+  <div>
     <section
       id="intro"
-      class="pb-48 scroll-mt-5 layout-section"
+      class="pb-20 scroll-mt-5 layout-section"
       aria-describedby="intro-h1 intro-h2"
     >
       <div class="max-w-5xl px-5 mx-auto">
@@ -15,16 +15,42 @@
           height="300"
           class="rounded-full mx-auto my-12"
         />
+        <p class="text--xl">Hello, I'm Jordan Mowry.</p>
         <p class="text--xl">
-          Jordan is a software engineer based in Bloomington, Indiana.
+          I am a software engineer based in Bloomington, Indiana.
         </p>
         <p class="text--xl my-0">
-          Jordan brings your idea to life with
+          I will bring your idea to life with
           <strong>modern technology</strong>.
         </p>
       </div>
     </section>
-  </main>
+
+    <!-- YouTube Video Section -->
+    <section id="video" class="pb-15 layout-section">
+      <div class="max-w-5xl px-5 mx-auto">
+        <div class="video-container">
+          <iframe
+            width="100%"
+            height="400"
+            src="https://www.youtube.com/embed/62hdDsyq60c"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="my-40 flex flex-col gap-4 items-center">
+        <NuxtLink to="/hire-me" class="btn btn--raised"> Hire Me </NuxtLink>
+        <NuxtLink class="text-lg underline" to="/about-me"
+          >Learn more about me</NuxtLink
+        >
+      </div>
+    </section>
+  </div>
 </template>
 
 <style>
@@ -108,5 +134,22 @@ p {
 textarea.input {
   resize: vertical;
   min-height: 100px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
