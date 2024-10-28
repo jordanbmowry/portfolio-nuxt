@@ -12,7 +12,7 @@
           width="2000"
           src="/images/about_me.JPG"
           alt="Profile image"
-          class="mx-auto my-2"
+          class="mx-auto my-10"
         />
         <div class="layout-grid-half">
           <div>
