@@ -27,7 +27,7 @@
     </section>
 
     <!-- YouTube Video Section -->
-    <section id="video" class="pb-15 layout-section">
+    <section id="video" class="layout-section pb-20">
       <div class="max-w-5xl px-5 mx-auto">
         <div class="video-container">
           <iframe
@@ -42,8 +42,8 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="my-40 flex flex-col gap-4 items-center">
+    <section class="layout-section pb-20">
+      <div class="flex flex-col gap-4 items-center">
         <NuxtLink to="/hire-me" class="btn btn--raised"> Hire Me </NuxtLink>
         <NuxtLink class="text-lg underline" to="/about-me"
           >Learn more about me</NuxtLink

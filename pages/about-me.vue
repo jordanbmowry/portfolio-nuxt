@@ -89,7 +89,7 @@
 
     <section
       id="experience"
-      class="pb-15 scroll-mt-5 layout-section"
+      class="pb-20 scroll-mt-5 layout-section"
       aria-labelledby="heading-experience"
     >
       <div class="max-w-5xl px-5 mx-auto">
@@ -118,7 +118,7 @@
       </div>
     </section>
     <section>
-      <div class="my-40 flex flex-col gap-4 items-center">
+      <div class="layout-section pb-20 flex flex-col gap-4 items-center">
         <NuxtLink to="/hire-me" class="btn btn--raised"> Hire Me </NuxtLink>
         <NuxtLink class="text-lg underline" to="/portfolio"
           >Check out my projects</NuxtLink

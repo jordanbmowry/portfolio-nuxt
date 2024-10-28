@@ -2,7 +2,7 @@
   <div>
     <section
       id="portfolio"
-      class="pb-15 scroll-mt-5 layout-section"
+      class="scroll-mt-5 layout-section"
       aria-labelledby="heading-portfolio"
     >
       <div class="max-w-5xl px-5 mx-auto">
@@ -20,7 +20,7 @@
       </div>
     </section>
     <section>
-      <div class="my-40 flex flex-col gap-4 items-center">
+      <div class="my-40 layout-section flex flex-col gap-4 items-center">
         <NuxtLink to="/hire-me" class="btn btn--raised"> Hire Me </NuxtLink>
       </div>
     </section>
@@ -98,23 +98,3 @@ const portfolioItems = [
   },
 ];
 </script>
-
-<style scoped>
-.portfolio {
-  display: flex;
-  gap: var(--gap);
-  margin-bottom: 100px;
-}
-
-@media (max-width: 37.5rem) {
-  .portfolio {
-    display: block;
-  }
-}
-
-.portfolio-screenshot {
-  border-radius: 50%;
-  width: clamp(175px, 20vw, 300px);
-  height: clamp(175px, 20vw, 300px);
-}
-</style>
