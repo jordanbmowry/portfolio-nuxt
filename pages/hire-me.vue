@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div>
     <section
       id="hire-me"
       class="pb-48 scroll-mt-5 layout-section"
@@ -98,7 +98,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -106,15 +106,14 @@ import { ref } from 'vue';
 import { useField, useForm } from 'vee-validate';
 import * as yup from 'yup';
 // @ts-ignore
-import LocationIcon from '~/assets/svgs/location-icon.svg?component';
+import LocationIcon from '~/assets/icons/location-icon.svg?component';
 // @ts-ignore
-import EmailIcon from '~/assets/svgs/email-icon.svg?component';
+import EmailIcon from '~/assets/icons/email-icon.svg?component';
 // @ts-ignore
-import PhoneIcon from '~/assets/svgs/phone-icon.svg?component';
+import PhoneIcon from '~/assets/icons/phone-icon.svg?component';
 
 const FORMSPARK_ACTION_URL = 'https://submit-form.com/NXAd7ScE';
 
-const hasScrolledToAboutMe = ref(false);
 const formSubmittingInProcess = ref(false);
 const hasFormSubmitted = ref(false);
 
