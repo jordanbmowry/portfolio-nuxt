@@ -39,6 +39,12 @@ const props = defineProps<Props>();
   margin-bottom: 100px;
 }
 
+@media (max-width: 37.5rem) {
+  .portfolio {
+    display: block;
+  }
+}
+
 .portfolio-reverse {
   flex-direction: row-reverse;
 }
