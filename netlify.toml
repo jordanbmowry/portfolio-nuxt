@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".output/public"
+
+[functions]
+  # Nuxt serverless functions (if you’re using Nitro server mode)
+  directory = ".output/server"
+
+[build.environment]
+  NODE_VERSION = "20"
