@@ -24,8 +24,8 @@
                 <EmailIcon width="30" height="30" />
                 <div>
                   <p class="text mt-0 mb-1.5">Email</p>
-                  <a class="text--bold" href="mailto:jordan@jordanbmowry.com"
-                    >jordan@jordanbmowry.com</a
+                  <a class="text--bold" href="mailto:jordan.mowry@gmail.com"
+                    >jordan.mowry@gmail.com</a
                   >
                 </div>
               </div>
