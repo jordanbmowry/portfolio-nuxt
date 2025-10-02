@@ -140,7 +140,7 @@ const navigation = computed(() => [
 
             <DisclosureButton
               v-if="openMenu"
-              class="absolute top-4 right-4 p-2 focus:outline-none transition-colors duration-200"
+              class="absolute top-2 right-2 p-3 focus:outline-none transition-colors duration-200 rounded-full"
               :style="{
                 color: 'var(--text-color)',
                 backgroundColor: 'transparent',
@@ -151,7 +151,7 @@ const navigation = computed(() => [
               "
               @mouseleave="$event.target.style.backgroundColor = 'transparent'"
             >
-              <XMarkIcon class="h-8 w-8" aria-hidden="true" />
+              <XMarkIcon class="h-10 w-10" aria-hidden="true" />
             </DisclosureButton>
           </div>
         </DisclosurePanel>
