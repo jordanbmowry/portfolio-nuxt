@@ -1,0 +1,2 @@
+import{h as r,createElementBlock as e,openBlock as n,createElementVNode as o}from"vue";import{N as i}from"./nuxt-icon-CE1vFU4w.mjs";import"vue/server-renderer";import"./_plugin-vue_export-helper-1tPrXgE0.mjs";const t={viewBox:"0 0 50 50"};function render(r,i){return n(),e("svg",t,[...i[0]||(i[0]=[o("circle",{cx:"25",cy:"25",r:"20",fill:"none",class:"i-285188014__path"},null,-1)])])}const s={render:()=>r(i,{icon:{render:render},name:"loading-spinner"})};export{s as default,render};
+//# sourceMappingURL=loading-spinner-Cd2oPDMf.mjs.map

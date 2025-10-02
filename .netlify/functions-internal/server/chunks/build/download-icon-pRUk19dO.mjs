@@ -1,0 +1,2 @@
+import{h as e,createElementBlock as r,openBlock as n,createElementVNode as o}from"vue";import{N as t}from"./nuxt-icon-CE1vFU4w.mjs";import"vue/server-renderer";import"./_plugin-vue_export-helper-1tPrXgE0.mjs";const i={fill:"none","aria-hidden":"true",viewBox:"0 0 16 16"};function render(e,t){return n(),r("svg",i,[...t[0]||(t[0]=[o("path",{d:"M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"},null,-1)])])}const d={render:()=>e(t,{icon:{render:render},name:"download-icon"})};export{d as default,render};
+//# sourceMappingURL=download-icon-pRUk19dO.mjs.map

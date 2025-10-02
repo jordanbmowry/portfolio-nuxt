@@ -1,0 +1,2 @@
+const a=".portfolio[data-v-74ad75f7]{display:flex;gap:var(--gap);margin-bottom:100px}@media (max-width:37.5rem){.portfolio[data-v-74ad75f7]{display:block}}.portfolio-reverse[data-v-74ad75f7]{flex-direction:row-reverse}.portfolio-screenshot[data-v-74ad75f7]{border-radius:50%;height:clamp(175px,20vw,300px);width:clamp(175px,20vw,300px)}";export{a as P};
+//# sourceMappingURL=PortfolioItem-styles-1.mjs-B9xVVRoT.mjs.map
