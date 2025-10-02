@@ -5,8 +5,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 import LogoSvg from '~/assets/icons/logo.svg?component';
 // @ts-ignore
 import LinkedInSvg from '~/assets/icons/linkedin.svg?component';
-// @ts-ignore
-import UpworkSvg from '~/assets/icons/upwork.svg?component';
 
 // Initialize theme
 const { initializeTheme } = useTheme();
@@ -168,15 +166,6 @@ const navigation = [
                   target="_blank"
                 >
                   <LinkedInSvg width="32" height="32" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.upwork.com/freelancers/~01a20a180b9ed432fc"
-                  class="cursor-pointer"
-                  target="_blank"
-                >
-                  <UpworkSvg width="32" height="32" />
                 </a>
               </li>
             </ul>
