@@ -170,21 +170,26 @@ const onSubmit = handleSubmit(async (formData) => {
 
 .input {
   width: 100%;
-  background-color: transparent;
+  background-color: var(--input-bg);
   border: 0;
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid var(--input-border);
   padding: 12px 10px;
   font-weight: 300;
   font-size: 1.4rem;
   line-height: 1.9;
   color: var(--text-color);
   margin-bottom: 24px;
-  transition: border-color 200ms;
+  transition: border-color 200ms, background-color 0.3s ease;
 }
 
 .input:focus {
   border-bottom-color: var(--primary);
   outline: none;
+}
+
+.input::placeholder {
+  color: var(--gray-dark);
+  opacity: 0.7;
 }
 
 textarea.input {

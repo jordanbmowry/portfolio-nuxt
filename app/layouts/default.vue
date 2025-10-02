@@ -8,6 +8,9 @@ import LinkedInSvg from '~/assets/icons/linkedin.svg?component';
 // @ts-ignore
 import UpworkSvg from '~/assets/icons/upwork.svg?component';
 
+// Initialize theme
+const { initializeTheme } = useTheme();
+
 const currentYear = computed(() => new Date().getFullYear());
 const openMenu = ref(false);
 const navigation = [
@@ -37,13 +40,21 @@ const navigation = [
   <div id="app">
     <!-- Navigation -->
     <nav>
-      <Disclosure as="div" class="relative bg-gray-800">
+      <Disclosure
+        as="div"
+        class="relative"
+        :style="{ backgroundColor: 'var(--nav-bg)' }"
+      >
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
               <!-- Mobile menu button -->
               <DisclosureButton
-                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                :style="{
+                  color: 'var(--text-color)',
+                  ':hover': { backgroundColor: 'var(--nav-hover)' },
+                }"
                 @click="openMenu = !openMenu"
               >
                 <span class="sr-only">Open main menu</span>
@@ -73,12 +84,19 @@ const navigation = [
                 </div>
               </div>
             </div>
+            <!-- Theme Toggle Button -->
+            <div
+              class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+            >
+              <ThemeToggle />
+            </div>
           </div>
         </div>
 
         <DisclosurePanel
           v-if="openMenu"
-          class="fixed inset-0 top-16 left-0 z-50 bg-gray-800 sm:hidden"
+          class="fixed inset-0 top-16 left-0 z-50 sm:hidden"
+          :style="{ backgroundColor: 'var(--nav-bg)' }"
         >
           <!-- Backdrop -->
           <div
@@ -102,6 +120,12 @@ const navigation = [
             >
               {{ item.name }}
             </DisclosureButton>
+
+            <!-- Theme Toggle in Mobile Menu -->
+            <div class="flex justify-center py-4">
+              <ThemeToggle />
+            </div>
+
             <DisclosureButton
               v-if="openMenu"
               class="absolute top-4 right-4 p-2 text-gray-400 hover:text-white focus:outline-none"
@@ -180,25 +204,10 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--nav-background);
 }
 
 footer {
   margin-top: auto;
-}
-
-.toggle-theme {
-  position: fixed;
-  top: 5px;
-  right: 5px;
-  z-index: 1001;
-  padding: 5px;
-  cursor: pointer;
-  transition: transform 180ms;
-}
-
-.toggle-theme:active {
-  transform: translate(1px, 1px);
 }
 
 .footer {
