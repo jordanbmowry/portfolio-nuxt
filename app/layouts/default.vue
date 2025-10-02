@@ -8,27 +8,34 @@ import LinkedInSvg from '~/assets/icons/linkedin.svg?component';
 
 const currentYear = computed(() => new Date().getFullYear());
 const openMenu = ref(false);
-const navigation = [
-  { name: 'HOME', href: '/', current: true, styles: 'btn btn--nav' },
+const route = useRoute();
+
+const navigation = computed(() => [
+  {
+    name: 'HOME',
+    href: '/',
+    current: route.path === '/',
+    styles: 'btn btn--nav',
+  },
   {
     name: 'ABOUT ME',
     href: '/about-me',
-    current: false,
+    current: route.path === '/about-me',
     styles: 'btn btn--nav',
   },
   {
     name: 'PORTFOLIO',
     href: '/portfolio',
-    current: false,
+    current: route.path === '/portfolio',
     styles: 'btn btn--nav',
   },
   {
     name: 'HIRE ME',
     href: '/hire-me',
-    current: false,
+    current: route.path === '/hire-me',
     styles: 'btn btn--raised',
   },
-];
+]);
 </script>
 
 <template>
