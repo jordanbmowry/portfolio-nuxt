@@ -1,17 +1,17 @@
 # Jordan B Mowry | Portfolio Website
 
-A modern, performant portfolio website built with Nuxt 4, showcasing software engineering projects and professional experience. The site uses static site generation (SSG) for optimal SEO and performance, deployed on Netlify.
+A modern, performant portfolio website built with Nuxt 4, showcasing software engineering projects and professional experience. The site uses server-side rendering (SSR) for optimal SEO and performance, deployed on Netlify.
 
 🌐 **Live Site**: [jordanbmowry.com](https://jordanbmowry.com)
 
 ## Features
 
-- ⚡ **Static Site Generation** with Nuxt 4
+- ⚡ **Server-Side Rendering** with Nuxt 4
 - 🎨 **Hybrid Styling** with CSS custom properties + Tailwind CSS
 - 📱 **Responsive Design** with mobile-first approach
 - 🖼️ **Optimized Images** with WebP format and quality compression
 - 📧 **Contact Form** with validation using Vee-Validate and Yup
-- 🔍 **SEO Optimized** with comprehensive meta tags and Schema.org
+- 🔍 **SEO Optimized** with comprehensive meta tags
 - ♿ **Accessible** navigation with HeadlessUI components
 - 🎯 **Performance Focused** with Google Fonts optimization
 
@@ -44,13 +44,7 @@ npm run dev
 
 ## Production
 
-Generate static files for deployment:
-
-```bash
-npm run generate
-```
-
-Build for production:
+Build for SSR deployment:
 
 ```bash
 npm run build
@@ -61,6 +55,8 @@ Preview production build locally:
 ```bash
 npm run preview
 ```
+
+Note: Preview may not work locally with Netlify SSR preset - test in production environment.
 
 ## Project Structure
 
@@ -73,16 +69,19 @@ app/
 └── pages/           # File-based routing (index, about-me, portfolio, hire-me)
 public/              # Static assets and images
 types/               # TypeScript type definitions
+.netlify/            # Netlify functions for SSR (generated)
+dist/                # Static assets output (generated)
 ```
 
 ## Deployment
 
 The site automatically deploys to Netlify on push to the main branch using:
 
-- Build command: `npm run generate`
-- Publish directory: `.output/public`
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Functions directory: `.netlify/functions-internal`
 - Node version: 20
 
 ## Migration Notes
 
-This project was upgraded from Nuxt 3 to Nuxt 4. Due to deployment issues with SSR on Netlify, the site uses static generation (`nitro.preset: 'static'`) instead of server-side rendering.
+This project was successfully upgraded from Nuxt 3 to Nuxt 4 with SSR enabled. The `nuxt-schema-org` module was removed due to Nuxt 4 incompatibility, and the site now uses server-side rendering (`nitro.preset: 'netlify'`) for enhanced performance and SEO.

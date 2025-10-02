@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-This is a **static portfolio website** built with Nuxt 4 for a software engineer. The site uses static site generation (SSG) and deploys to Netlify. Key architectural decisions prioritize SEO, performance, and simplicity.
+This is a **server-side rendered portfolio website** built with Nuxt 4 for a software engineer. The site uses server-side rendering (SSR) and deploys to Netlify. Key architectural decisions prioritize SEO, performance, and dynamic rendering capabilities.
 
 ## Key Architecture Patterns
 
-### Static Generation & Performance
+### SSR & Performance
 
-- Uses `nitro.preset: 'static'` for full static generation
+- Uses `nitro.preset: 'netlify'` for server-side rendering
 - Image optimization via `@nuxt/image` with WebP format and quality: 80
 - Google Fonts with `display: 'swap'` for performance
 - Asset compression enabled in production
@@ -31,8 +31,8 @@ This is a **static portfolio website** built with Nuxt 4 for a software engineer
 
 ```bash
 npm run dev          # Development server
-npm run generate     # Static site generation (for Netlify)
-npm run build        # Standard build
+npm run build        # SSR build for Netlify deployment
+npm run generate     # Static site generation (legacy, not used)
 ```
 
 ## Critical Patterns
@@ -41,7 +41,7 @@ npm run build        # Standard build
 
 - Global SEO configured in `app.vue` with comprehensive meta tags
 - Runtime config in `nuxt.config.ts` for site URL and name
-- Schema.org integration via `nuxt-schema-org` module
+- Schema.org removed due to Nuxt 4 incompatibility
 
 ### Form Validation & Contact System
 
@@ -70,8 +70,9 @@ npm run build        # Standard build
 
 ## Integration Points
 
-- **Netlify**: Static deployment with Node 20 (`npm run generate`)
-- **Formspark**: Contact form submission service (no server-side processing)
+- **Netlify**: SSR deployment with Node 20 (`npm run build`)
+- **Output Structure**: Static assets in `dist/`, server functions in `.netlify/functions-internal/`
+- **Formspark**: Contact form submission service (server-side processing via SSR)
 - **Google Fonts**: Poppins font family with download and injection
 - **External Links**: Portfolio items link to external projects (no internal project pages)
 
@@ -85,8 +86,9 @@ npm run build        # Standard build
 
 ## Migration Notes (Nuxt 3→4)
 
-- **SSR disabled** due to Netlify deployment issues after Nuxt 4 upgrade
-- Using `nitro.preset: 'static'` for full static generation
+- **SSR successfully enabled** with Netlify after resolving deployment issues
+- **Incompatible modules removed**: `nuxt-schema-org` (required Nuxt ^3.0.0)
+- Using `nitro.preset: 'netlify'` for server-side rendering
 - Consider adding testing workflow (currently none implemented)
 
 ## File Organization
