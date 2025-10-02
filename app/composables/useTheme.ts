@@ -5,7 +5,7 @@ export const useTheme = () => {
   const theme = ref<Theme>('dark');
 
   // Check if we're in browser environment
-  const isClient = process.client;
+  const isClient = import.meta.client;
 
   // Initialize theme from localStorage or system preference
   const initializeTheme = () => {
@@ -13,12 +13,18 @@ export const useTheme = () => {
 
     // Check what theme is already applied to avoid flashing
     const root = document.documentElement;
-    const currentClass = root.classList.contains('light-theme') ? 'light' : 
-                        root.classList.contains('dark-theme') ? 'dark' : null;
+    const currentClass = root.classList.contains('light-theme')
+      ? 'light'
+      : root.classList.contains('dark-theme')
+      ? 'dark'
+      : null;
 
     // Check localStorage
     const savedTheme = localStorage.getItem('theme') as Theme | null;
-    const targetTheme = savedTheme && ['light', 'dark'].includes(savedTheme) ? savedTheme : 'dark';
+    const targetTheme =
+      savedTheme && ['light', 'dark'].includes(savedTheme)
+        ? savedTheme
+        : 'dark';
 
     // Update our reactive state
     theme.value = targetTheme;
@@ -40,7 +46,7 @@ export const useTheme = () => {
     if (!root.classList.contains(`${newTheme}-theme`)) {
       // Remove other theme class
       root.classList.remove(`${otherTheme}-theme`);
-      
+
       // Add new theme class
       root.classList.add(`${newTheme}-theme`);
 
