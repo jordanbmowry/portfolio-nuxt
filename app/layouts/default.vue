@@ -6,9 +6,6 @@ import LogoSvg from '~/assets/icons/logo.svg?component';
 // @ts-ignore
 import LinkedInSvg from '~/assets/icons/linkedin.svg?component';
 
-// Initialize theme
-const { initializeTheme } = useTheme();
-
 const currentYear = computed(() => new Date().getFullYear());
 const openMenu = ref(false);
 const navigation = [

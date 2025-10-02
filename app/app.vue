@@ -57,6 +57,25 @@ useHead({
       href: '/apple-touch-icon.png',
     },
   ],
+  script: [
+    {
+      innerHTML: `
+        (function() {
+          try {
+            const savedTheme = localStorage.getItem('theme');
+            const theme = savedTheme && ['light', 'dark'].includes(savedTheme) ? savedTheme : 'dark';
+            document.documentElement.classList.add(theme + '-theme');
+            document.documentElement.style.setProperty('--current-theme', theme);
+          } catch (e) {
+            // If localStorage fails, apply dark theme as default
+            document.documentElement.classList.add('dark-theme');
+            document.documentElement.style.setProperty('--current-theme', 'dark');
+          }
+        })();
+      `,
+      type: 'text/javascript',
+    },
+  ],
 });
 </script>
 

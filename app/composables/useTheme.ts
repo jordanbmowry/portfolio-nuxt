@@ -11,18 +11,22 @@ export const useTheme = () => {
   const initializeTheme = () => {
     if (!isClient) return;
 
-    // Check localStorage first
+    // Check what theme is already applied to avoid flashing
+    const root = document.documentElement;
+    const currentClass = root.classList.contains('light-theme') ? 'light' : 
+                        root.classList.contains('dark-theme') ? 'dark' : null;
+
+    // Check localStorage
     const savedTheme = localStorage.getItem('theme') as Theme | null;
+    const targetTheme = savedTheme && ['light', 'dark'].includes(savedTheme) ? savedTheme : 'dark';
 
-    if (savedTheme && ['light', 'dark'].includes(savedTheme)) {
-      theme.value = savedTheme;
-    } else {
-      // Default to dark mode since the app currently only has dark styling
-      theme.value = 'dark';
+    // Update our reactive state
+    theme.value = targetTheme;
+
+    // Only apply theme if it's different from what's already applied
+    if (currentClass !== targetTheme) {
+      applyTheme(targetTheme);
     }
-
-    // Apply theme to document
-    applyTheme(theme.value);
   };
 
   // Apply theme to document root
@@ -30,15 +34,19 @@ export const useTheme = () => {
     if (!isClient) return;
 
     const root = document.documentElement;
+    const otherTheme = newTheme === 'dark' ? 'light' : 'dark';
 
-    // Remove existing theme classes
-    root.classList.remove('light-theme', 'dark-theme');
+    // Only update if theme is actually changing
+    if (!root.classList.contains(`${newTheme}-theme`)) {
+      // Remove other theme class
+      root.classList.remove(`${otherTheme}-theme`);
+      
+      // Add new theme class
+      root.classList.add(`${newTheme}-theme`);
 
-    // Add new theme class
-    root.classList.add(`${newTheme}-theme`);
-
-    // Update CSS custom property for theme detection
-    root.style.setProperty('--current-theme', newTheme);
+      // Update CSS custom property for theme detection
+      root.style.setProperty('--current-theme', newTheme);
+    }
   };
 
   // Toggle between themes
@@ -61,10 +69,10 @@ export const useTheme = () => {
   const isDark = computed(() => theme.value === 'dark');
   const isLight = computed(() => theme.value === 'light');
 
-  // Initialize on mount
-  onMounted(() => {
+  // Initialize immediately if we're on the client
+  if (isClient) {
     initializeTheme();
-  });
+  }
 
   return {
     theme: readonly(theme),
