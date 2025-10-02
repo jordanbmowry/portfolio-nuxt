@@ -22,7 +22,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vee-validate/nuxt',
     '@nuxtjs/tailwindcss',
-    'nuxt-schema-org',
     [
       '@nuxtjs/google-fonts',
       {
@@ -38,9 +37,6 @@ export default defineNuxtConfig({
     ],
     'nuxt-svgo',
   ],
-  build: {
-    transpile: ['vue-schema-org'],
-  },
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://jordanbmowry.com',

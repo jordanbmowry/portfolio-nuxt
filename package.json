@@ -15,7 +15,6 @@
     "@types/node": "^18",
     "autoprefixer": "^10.4.14",
     "nuxt": "^4.1.2",
-    "nuxt-schema-org": "^2.2.0",
     "nuxt-svgo": "^4.0.6"
   },
   "dependencies": {
