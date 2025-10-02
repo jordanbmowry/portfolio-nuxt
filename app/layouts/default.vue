@@ -93,9 +93,10 @@ const navigation = [
           class="fixed inset-0 top-16 left-0 z-50 sm:hidden"
           :style="{ backgroundColor: 'var(--nav-bg)' }"
         >
-          <!-- Backdrop -->
+          <!-- Theme-aware Backdrop -->
           <div
-            class="fixed inset-0 bg-black bg-opacity-75"
+            class="fixed inset-0 bg-opacity-75"
+            :style="{ backgroundColor: 'var(--text-color)' }"
             aria-hidden="true"
           ></div>
           <div class="relative z-10 space-y-1 px-2 pb-3 pt-2">
@@ -104,14 +105,15 @@ const navigation = [
               :key="item.name"
               as="a"
               :href="item.href"
-              :class="[
-                item.current
-                  ? 'bg-gray-900 text-white'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-3 text-lg font-medium',
-              ]"
+              class="block rounded-md px-3 py-3 text-lg font-medium transition-colors duration-200"
+              :style="{
+                color: 'var(--text-color)',
+                backgroundColor: item.current ? 'var(--nav-hover)' : 'transparent',
+              }"
               :aria-current="item.current ? 'page' : undefined"
               @click="openMenu = false"
+              @mouseover="$event.target.style.backgroundColor = 'var(--nav-hover)'"
+              @mouseleave="$event.target.style.backgroundColor = item.current ? 'var(--nav-hover)' : 'transparent'"
             >
               {{ item.name }}
             </DisclosureButton>
@@ -123,8 +125,14 @@ const navigation = [
 
             <DisclosureButton
               v-if="openMenu"
-              class="absolute top-4 right-4 p-2 text-gray-400 hover:text-white focus:outline-none"
+              class="absolute top-4 right-4 p-2 focus:outline-none transition-colors duration-200"
+              :style="{ 
+                color: 'var(--text-color)',
+                backgroundColor: 'transparent'
+              }"
               @click="openMenu = false"
+              @mouseover="$event.target.style.backgroundColor = 'var(--nav-hover)'"
+              @mouseleave="$event.target.style.backgroundColor = 'transparent'"
             >
               <XMarkIcon class="h-8 w-8" aria-hidden="true" />
             </DisclosureButton>
