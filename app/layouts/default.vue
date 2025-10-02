@@ -93,10 +93,10 @@ const navigation = [
           class="fixed inset-0 top-16 left-0 z-50 sm:hidden"
           :style="{ backgroundColor: 'var(--nav-bg)' }"
         >
-          <!-- Theme-aware Backdrop -->
+          <!-- Theme-aware Backdrop with proper contrast -->
           <div
             class="fixed inset-0 bg-opacity-75"
-            :style="{ backgroundColor: 'var(--text-color)' }"
+            :style="{ backgroundColor: 'var(--bg-color)' }"
             aria-hidden="true"
           ></div>
           <div class="relative z-10 space-y-1 px-2 pb-3 pt-2">
@@ -108,12 +108,20 @@ const navigation = [
               class="block rounded-md px-3 py-3 text-lg font-medium transition-colors duration-200"
               :style="{
                 color: 'var(--text-color)',
-                backgroundColor: item.current ? 'var(--nav-hover)' : 'transparent',
+                backgroundColor: item.current
+                  ? 'var(--nav-hover)'
+                  : 'transparent',
               }"
               :aria-current="item.current ? 'page' : undefined"
               @click="openMenu = false"
-              @mouseover="$event.target.style.backgroundColor = 'var(--nav-hover)'"
-              @mouseleave="$event.target.style.backgroundColor = item.current ? 'var(--nav-hover)' : 'transparent'"
+              @mouseover="
+                $event.target.style.backgroundColor = 'var(--nav-hover)'
+              "
+              @mouseleave="
+                $event.target.style.backgroundColor = item.current
+                  ? 'var(--nav-hover)'
+                  : 'transparent'
+              "
             >
               {{ item.name }}
             </DisclosureButton>
@@ -126,12 +134,14 @@ const navigation = [
             <DisclosureButton
               v-if="openMenu"
               class="absolute top-4 right-4 p-2 focus:outline-none transition-colors duration-200"
-              :style="{ 
+              :style="{
                 color: 'var(--text-color)',
-                backgroundColor: 'transparent'
+                backgroundColor: 'transparent',
               }"
               @click="openMenu = false"
-              @mouseover="$event.target.style.backgroundColor = 'var(--nav-hover)'"
+              @mouseover="
+                $event.target.style.backgroundColor = 'var(--nav-hover)'
+              "
               @mouseleave="$event.target.style.backgroundColor = 'transparent'"
             >
               <XMarkIcon class="h-8 w-8" aria-hidden="true" />
