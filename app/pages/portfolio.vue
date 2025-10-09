@@ -32,6 +32,17 @@ import PortfolioItem from '@/components/PortfolioItem.vue';
 
 const portfolioItems = [
   {
+    imageSrc: '/images/portfolio-07.png',
+    altText: 'Mowry Agency - Life Insurance Website',
+    title: 'Mowry Agency',
+    description: [
+      'Mowry Agency is a comprehensive life insurance agency website built with Nuxt.js, featuring a complete migration from the Spotlight Template to create a modern, professional insurance platform. The site specializes in life insurance solutions including Term Life, Whole Life, Indexed Universal Life (IUL), and retirement planning services.',
+      'The platform includes advanced features such as a dynamic quote form with Supabase database integration, automated email notifications using Vue Email components, comprehensive SEO optimization, and full dark/light mode theming. Built with Tailwind CSS v4, HeadlessUI Vue components, and includes extensive testing with Vitest and Playwright.',
+      'This project demonstrates expertise in modern web development, database integration, email automation, responsive design, and creating professional business websites that handle lead generation and customer management effectively.',
+    ],
+    link: 'https://github.com/jordanbmowry/spotlight-nuxt',
+  },
+  {
     imageSrc: '/images/portfolio-06.png',
     altText: 'My Audio Supplies - E-commerce Store',
     title: 'My Audio Supplies',
