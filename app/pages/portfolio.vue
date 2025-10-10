@@ -40,7 +40,7 @@ const portfolioItems = [
       'The platform includes advanced features such as a dynamic quote form with Supabase database integration, automated email notifications using Vue Email components, comprehensive SEO optimization, and full dark/light mode theming. Built with Tailwind CSS v4, HeadlessUI Vue components, and includes extensive testing with Vitest and Playwright.',
       'This project demonstrates expertise in modern web development, database integration, email automation, responsive design, and creating professional business websites that handle lead generation and customer management effectively.',
     ],
-    link: 'https://github.com/jordanbmowry/spotlight-nuxt',
+  link: 'https://github.com/jordanbmowry/mowry-agency',
   },
   {
     imageSrc: '/images/portfolio-06.png',
